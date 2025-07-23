@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+{% block content %}
+  <h2>CBT Thought Entry</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.date.label }} {{ form.date() }}</p>
+    <p>{{ form.thought.label }} {{ form.thought(rows=5) }}</p>
+    <p>{{ form.submit() }}</p>
+  </form>
+{% endblock %}
+{% if response %}
+  <h3>AI CBT Response:</h3>
+  <p>{{ response }}</p>
+{% endif %}
+{% if data %}
+  <h2>CBT History</h2>
+  <ul>
+    {% for entry in data %}   
+      <li>{{ entry.date }} - Thought: {{ entry.thought }} - Response: {{ entry.response }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No CBT entries found.</p>
+{% endif %}
+{% endblock %}

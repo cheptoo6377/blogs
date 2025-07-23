@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+{% block content %}
+  <h2>Mood Check-In</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>{{ form.date.label }} {{ form.date() }}</p>
+    <p>{{ form.mood.label }} {{ form.mood() }}</p>
+    <p>{{ form.notes.label }} {{ form.notes(rows=4) }}</p>
+    <p>{{ form.submit() }}</p>
+  </form>
+
+{% if data %}
+  <h2>Mood History</h2>
+  <ul>
+    {% for entry in data %}
+      <li>{{ entry.date }} - Mood: {{ entry.mood }} - Notes: {{ entry.notes }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No mood entries found.</p>
+{% endif %}
+{% endblock %}

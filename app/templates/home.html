@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Therapy Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      background-color: #3d7043;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to AI Therapy Bot</h1>
+  <li>
+  <a href="{{ url_for('checkin') }}" class="button">Start Daily Check-in</a>
+  </li>
+<li>
+  <a href="{{ url_for('mood') }}" class="button">View Mood History</a>
+    </li>
+
+</body>
+</html>
